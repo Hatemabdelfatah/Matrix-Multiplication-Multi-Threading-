@@ -123,12 +123,9 @@ Your code should handle memory management and sending arguments to threads funct
   * Create A, B, and C in the dynamic heap, then create a struct that has A*, B*, C* (pointers to the arrays), the row number, and the column number , then send the struct to the thread function by reference (allocate the struct in the dynamic heap).
 * In all cases, you have to free any allocated memory in the dynamic heap at the end of the worker (child) thread, no memory leak should be allowed.
 
-## 6. Deliverables
 
-* Make sure to submit your code on the online tester before the deadline to avoid penalties.
-* We will only consider the latest submission.
 
-## 7. Hints
+## 6. Hints
 
 To measure the execution time, you will need to use code that is similar to this:
 
@@ -148,15 +145,6 @@ main()
 }
 ```
 
-## 8. Frequently Asked Questions
-
-1. Why the first method (a thread per matrix) is performing better than the second (a thread per row) and the third (a thread per element)?
-
-    The idea is, creating and handling threads requires extra overhead and lots of computation, so, it's not always the ideal solution to go for multi-threading, and there's always a tradeoff.
-
-    In the case of matrix multiplication, it's better programmed in [many-core programming (using GPUs)](https://www.quantstart.com/articles/Matrix-Matrix-Multiplication-on-the-GPU-with-Nvidia-CUDA/) or in case of CPU multi-threading, it would make sense to use per row in very large matrices, or actually, we could use threads for regions or blocks as in [block matrix multiplication](https://www.tutorialspoint.com/parallel_algorithm/matrix_multiplication.htm).
-
-    In designing multi-threaded programs, you always consider many things, including the threading overhead, the size of the problem, and the level of concurrency. There's no rule for that, you just make your own analysis and take your decision accordingly.
 
 ## Readings & Resources
 
